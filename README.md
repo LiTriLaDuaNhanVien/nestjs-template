@@ -19,7 +19,7 @@ $ pnpm install
 $ pnpm run start
 
 # dev run
-$ pnpm run dev`
+$ pnpm run dev
 
 # watch mode
 $ pnpm run start:dev
