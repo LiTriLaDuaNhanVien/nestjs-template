@@ -14,7 +14,7 @@ export class AppController {
 
   @Post('/hello_auto_validate')
   @ApiBody({ type: helloworldDto })
-  postHelloAutoValidate(@Body() helloworldDto: helloworldDto): string {
+  postHelloAutoValidate(@Body() helloworldDto: helloworldDto){
     console.log(helloworldDto);
     return this.appService.postHelloAutoValidate();
   }

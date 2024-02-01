@@ -9,7 +9,7 @@
 ## Installation
 ```bash
 # Auto Generate Swagger
-# Hot reload`
+# Hot reload
 # ValidationPipe
 ```
 ```bash

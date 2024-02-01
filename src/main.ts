@@ -3,6 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { RoutersModule } from './routes/router';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import config_env from './config';
+
 
 declare const module: any;
 
@@ -18,9 +20,9 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup(config_env.SWAGGER_ENDPOINT, app, document);
 
-  await app.listen(3000);
+  await app.listen(config_env.PORT);
   console.log(`Application is running on: ${await app.getUrl()}`);
   
 
