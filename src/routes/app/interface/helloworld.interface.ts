@@ -1,3 +1,3 @@
-export interface iHelloWorld{
-    helloworld: boolean;
+export interface iHelloWorld {
+	helloworld: boolean;
 }
