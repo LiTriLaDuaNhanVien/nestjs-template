@@ -7,10 +7,14 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
-
+### Auto Generate Swagger
+### Hot reload
+### ValidationPipe
 ```bash
 $ pnpm install
 ```
+
+
 
 ## Running the app
 
@@ -21,7 +25,7 @@ $ pnpm run start
 # dev run
 $ pnpm run dev
 
-# watch mode
+# watch mode`
 $ pnpm run start:dev
 
 # production mode
