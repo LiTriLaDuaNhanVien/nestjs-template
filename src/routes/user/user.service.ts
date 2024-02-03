@@ -32,4 +32,40 @@ export class UserService {
       orderBy,
     });
   }
+
+  async createUser(data: CreateUserDto): Promise<User> {
+    return this.prisma.user.create({
+      data,
+    });
+  }
+
+  async readUsers(): Promise<User[]> {
+    return this.prisma.user.findMany();
+  }
+
+  async updateUser(params: {
+    where: Prisma.UserWhereUniqueInput;
+    data: UpdateUserDto;
+  }): Promise<User> {
+    const { where, data } = params;
+    return this.prisma.user.update({
+      data,
+      where,
+    });
+  }
+
+  async readUser(params: {
+    where: Prisma.UserWhereUniqueInput;
+  }): Promise<User> {
+    const { where } = params;
+    return this.prisma.user.findUnique({
+      where,
+    });
+  }
+
+  async deleteUser(where: Prisma.UserWhereUniqueInput): Promise<User> {
+    return this.prisma.user.delete({
+      where,
+    });
+  }
 }
