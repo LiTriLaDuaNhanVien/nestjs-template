@@ -1,5 +1,5 @@
 import { BadRequestException, HttpException, HttpStatus, NotFoundException, UnauthorizedException } from '@nestjs/common';
-export class UserExeption {
+export class UserException {
     static UserExist() {
         throw new BadRequestException("Some error description",{ cause: new Error(), description: 'E001' })
     }

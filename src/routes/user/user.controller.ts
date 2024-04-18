@@ -8,7 +8,7 @@ import {
 	Delete,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserExeption } from 'src/exceptions/users';
+import { UserException } from 'src/exceptions/users';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -20,7 +20,7 @@ export class UserController {
 
 	@Get('/example_UserExist')
 	async example_UserExist() {
-		throw UserExeption.UserExist();
+		throw UserException.UserExist();
 	}
 
 	@Post('/login')
@@ -29,7 +29,7 @@ export class UserController {
 			email: loginBody.email,
 		});
 		if (data == null) {
-			throw UserExeption.UserNotFound();
+			throw UserException.UserNotFound();
 		}
 		var response =
 			(await data).password == loginBody.password
@@ -42,7 +42,7 @@ export class UserController {
 				data: data,
 			};
 		} else {
-			throw UserExeption.NotCorrectPassword();
+			throw UserException.NotCorrectPassword();
 		}
 	}
 
@@ -90,7 +90,7 @@ export class UserController {
   @Delete('/delete/:id')
   async delete_user(@Param('id') id: string) {
     if (await this.userService.user({ id: parseInt(id) }) == null) {
-      throw UserExeption.UserNotFound();
+      throw UserException.UserNotFound();
     }
     return this.userService.deleteUser({
       id: parseInt(id),
